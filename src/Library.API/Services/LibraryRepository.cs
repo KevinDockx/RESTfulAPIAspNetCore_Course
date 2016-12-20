@@ -69,6 +69,14 @@ namespace Library.API.Services
             return _context.Authors.OrderBy(a => a.FirstName).ThenBy(a => a.LastName);
         }
 
+        public IEnumerable<Author> GetAuthors(IEnumerable<Guid> authorIds)
+        {
+            return _context.Authors.Where(a => authorIds.Contains(a.Id))
+                .OrderBy(a => a.FirstName)
+                .OrderBy(a => a.LastName)
+                .ToList();
+        }
+
         public void UpdateAuthor(Author author)
         {
             // no code in this implementation
