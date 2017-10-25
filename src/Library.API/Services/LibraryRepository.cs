@@ -36,7 +36,7 @@ namespace Library.API.Services
             {
                 // if there isn't an id filled out (ie: we're not upserting),
                 // we should generate one
-                if (book.Id == null)
+                if (book.Id == Guid.Empty)
                 {
                     book.Id = Guid.NewGuid();
                 }
